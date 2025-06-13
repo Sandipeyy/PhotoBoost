@@ -4,8 +4,10 @@ const enhanced = document.getElementById('enhanced');
 const sharpenChk = document.getElementById('sharpen');
 const brightnessChk = document.getElementById('brightness');
 const enhanceBtn = document.getElementById('enhance');
+const resetBtn = document.getElementById('reset');
 const downloadBtn = document.getElementById('download');
 const modeToggle = document.getElementById('modeToggle');
+const info = document.getElementById('info');
 
 let img = new Image();
 
@@ -26,6 +28,8 @@ img.onload = () => {
     const ctx = canvas.getContext('2d');
     ctx.drawImage(img, 0, 0);
   });
+  info.textContent = `Image Size: ${img.width} x ${img.height}px`;
+  gsap.fromTo('.images', {scale: 0.8, opacity: 0}, {scale: 1, opacity: 1, duration: 0.8});
 };
 
 enhanceBtn.addEventListener('click', () => {
@@ -37,26 +41,23 @@ enhanceBtn.addEventListener('click', () => {
   // Brightness + Contrast
   if (brightnessChk.checked) {
     for (let i = 0; i < data.length; i += 4) {
-      data[i] = Math.min(255, data[i] * 1.1 + 10);     // R
-      data[i+1] = Math.min(255, data[i+1] * 1.1 + 10); // G
-      data[i+2] = Math.min(255, data[i+2] * 1.1 + 10); // B
+      data[i] = Math.min(255, data[i] * 1.1 + 10);     
+      data[i+1] = Math.min(255, data[i+1] * 1.1 + 10); 
+      data[i+2] = Math.min(255, data[i+2] * 1.1 + 10); 
     }
   }
 
-  // Sharpen (simple kernel)
+  // Sharpen
   if (sharpenChk.checked) {
     const w = enhanced.width;
     const h = enhanced.height;
     const tempData = new Uint8ClampedArray(data);
-
-    const kernel = [0, -1, 0, -1, 5, -1, 0, -1, 0]; // sharpen
-
+    const kernel = [0, -1, 0, -1, 5, -1, 0, -1, 0];
     for (let y = 1; y < h - 1; y++) {
       for (let x = 1; x < w - 1; x++) {
-        for (let c = 0; c < 3; c++) { // RGB only
+        for (let c = 0; c < 3; c++) {
           let i = (y * w + x) * 4 + c;
-          let sum = 0;
-          let k = 0;
+          let sum = 0, k = 0;
           for (let ky = -1; ky <= 1; ky++) {
             for (let kx = -1; kx <= 1; kx++) {
               let ni = ((y + ky) * w + (x + kx)) * 4 + c;
@@ -70,7 +71,14 @@ enhanceBtn.addEventListener('click', () => {
   }
 
   ctx.putImageData(imageData, 0, 0);
-  alert("Tyaar Vayo! 🤩 Check the enhanced image.");
+  gsap.fromTo('#enhanced', {scale:0.8}, {scale:1, duration:0.5});
+});
+
+resetBtn.addEventListener('click', () => {
+  const ctx = enhanced.getContext('2d');
+  ctx.drawImage(img, 0, 0);
+  sharpenChk.checked = false;
+  brightnessChk.checked = false;
 });
 
 downloadBtn.addEventListener('click', () => {
@@ -83,3 +91,9 @@ downloadBtn.addEventListener('click', () => {
 modeToggle.addEventListener('click', () => {
   document.body.classList.toggle('dark');
 });
+
+window.onload = () => {
+  if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+    document.body.classList.add('dark');
+  }
+};
