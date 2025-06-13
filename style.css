@@ -1,0 +1,55 @@
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex; justify-content: center; align-items: center;
+  height: 100vh; margin: 0;
+  background: linear-gradient(135deg, #1f1c2c, #928DAB);
+  color: white;
+  transition: 0.3s;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  border-radius: 20px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+}
+
+.glass {
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+input[type="file"] {
+  margin: 10px 0;
+}
+
+.images {
+  display: flex; justify-content: center; gap: 10px;
+}
+
+canvas {
+  width: 150px; height: 150px;
+  border: 1px solid #fff;
+  background: #333;
+}
+
+.controls {
+  margin-top: 15px;
+}
+
+button {
+  padding: 8px 12px; margin: 5px;
+  border: none; border-radius: 8px;
+  cursor: pointer; background: #fff; color: #333;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #00d2ff; color: #fff;
+}
+
+.dark {
+  background: #111;
+  color: #eee;
+}
