@@ -2,32 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>PhotoBoost - Enhance Your Photos</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PhotoBoost PRO</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <div class="container glass">
     <h1>PhotoBoost</h1>
-    <p class="tagline">Your Simple Photo Enhancer</p>
     <input type="file" id="upload" accept="image/*">
     <p id="info">No image loaded.</p>
     <div class="images">
       <div>
-        <p>Original</p>
         <canvas id="original"></canvas>
       </div>
       <div>
-        <p>Enhanced</p>
         <canvas id="enhanced"></canvas>
       </div>
     </div>
     <div class="controls">
-      <label><input type="checkbox" id="sharpen"> Sharpen</label>
-      <label><input type="checkbox" id="brightness"> Brightness + Contrast</label>
-      <button id="enhance">Enhance Now</button>
-      <button id="reset">Reset</button>
-      <button id="download">Download Image</button>
+      <button id="autoEnhance">✨</button>
+      <button id="rotate">🔄</button>
+      <button id="flip">↔️</button>
+      <button id="reset">♻️</button>
+      <button id="download">⬇️</button>
     </div>
     <button id="modeToggle">🌙</button>
   </div>
