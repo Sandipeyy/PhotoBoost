@@ -1,7 +1,10 @@
 body {
   font-family: 'Poppins', sans-serif;
-  display: flex; justify-content: center; align-items: center;
-  height: 100vh; margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
   background: linear-gradient(135deg, #1f1c2c, #928DAB);
   color: white;
   transition: 0.3s;
@@ -25,14 +28,18 @@ input[type="file"] {
 }
 
 .images {
-  display: flex; justify-content: center; gap: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
 }
 
 canvas {
-  width: 150px; height: 150px;
+  width: 150px;
+  height: 150px;
   border-radius: 12px;
   box-shadow: 0 0 15px #00d2ff;
   background: #222;
+  cursor: grab;
 }
 
 .controls {
@@ -40,9 +47,13 @@ canvas {
 }
 
 button {
-  padding: 8px 12px; margin: 5px;
-  border: none; border-radius: 8px;
-  cursor: pointer; background: #00d2ff; color: #fff;
+  padding: 8px 12px;
+  margin: 5px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  background: #00d2ff;
+  color: #fff;
   box-shadow: 0 0 10px #00d2ff;
   transition: 0.3s;
 }
