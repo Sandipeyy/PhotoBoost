@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PhotoBoost - Enhance Your Photos</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container glass">
+    <h1>PhotoBoost</h1>
+    <p class="tagline">“Tyaar Bhaira Cha... 🤭”</p>
+    <input type="file" id="upload" accept="image/*">
+    <div class="images">
+      <div>
+        <p>Original</p>
+        <canvas id="original"></canvas>
+      </div>
+      <div>
+        <p>Enhanced</p>
+        <canvas id="enhanced"></canvas>
+      </div>
+    </div>
+    <div class="controls">
+      <label><input type="checkbox" id="sharpen"> Sharpen</label>
+      <label><input type="checkbox" id="brightness"> Brightness + Contrast</label>
+      <button id="enhance">Enhance Now</button>
+      <button id="download">Download Image</button>
+    </div>
+    <button id="modeToggle">🌙</button>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
